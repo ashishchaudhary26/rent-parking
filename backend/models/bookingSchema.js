@@ -1,3 +1,4 @@
+const { string } = require("joi");
 const mongoose = require("mongoose");
 
 const bookingSchema = new mongoose.Schema(
@@ -26,10 +27,12 @@ const bookingSchema = new mongoose.Schema(
     },
     space_id: {
       type: mongoose.Schema.Types.ObjectId,
+
       ref: "Space",
     },
     user_id: {
       type: mongoose.Schema.Types.ObjectId,
+
       ref: "User",
     },
   },
