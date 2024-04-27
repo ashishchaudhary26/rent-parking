@@ -5,6 +5,8 @@ const { Types } = require("mongoose");
 
 const bookingRouter = Router();
 
+//create booking
+
 bookingRouter.post("/", async (req, res) => {
   try {
     const existBooking = await Booking.findOne({ user_id, space_id });
