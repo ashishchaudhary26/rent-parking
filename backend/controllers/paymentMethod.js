@@ -103,3 +103,5 @@ paymentMethodRouter.route("/:id").delete(async (req, res) => {
     res.status(400).json({ error });
   }
 });
+
+module.exports = paymentMethodRouter;
