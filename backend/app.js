@@ -9,6 +9,7 @@ const userRouter = require("./controllers/user");
 const paymentMethodRouter = require("./controllers/paymentMethod");
 const spaceRouter = require("./controllers/space");
 const reviewRouter = require("./controllers/review");
+const { isLoggedIn } = require("./controllers/middleware");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

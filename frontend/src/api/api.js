@@ -68,3 +68,42 @@ export const updateParking = async ({
     handleUpdateParkingFailure(error?.response?.data?.error);
   }
 };
+
+export const fetchSpaces = async ({
+  user_id,
+  parking_id,
+  city,
+  date,
+  time,
+  availability,
+  setSpaces,
+}) => {
+  try {
+    let query = "";
+    if (user_id) {
+      query += `user_id=${user_id}&`;
+    }
+    if (parking_id) {
+      query += `parking_id=${parking_id}&`;
+    }
+    if (city) {
+      query += `city=${city}&`;
+    }
+    if (date) {
+      query += `date=${date}&`;
+    }
+    if (time) {
+      query += `time=${time}&`;
+    }
+    if (availability) {
+      query += `availability=${availability}`;
+    }
+    const result = await axios.get(`${BASE_URL}space?${query}`);
+    if (result?.data?.length) {
+      setSpaces(result?.data);
+    }
+    console.log("fetchSpaces ", result);
+  } catch (error) {
+    console.error("fetchSpaces ", error);
+  }
+};
